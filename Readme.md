@@ -1,13 +1,13 @@
 Build
 
 ```
-docker build -t easy-ocr-api .
+docker build -t akshay090/ocr:easyocr .
 ```
 
 Run 
 
 ```
-docker run --gpus all -d --name easy-ocr -p 80:80 easy-ocr-api
+docker run --gpus all -v ~/akshay/OCR.Docker:/app -p 80:80 akshay090/ocr:easyocr
 ```
 
 Test API
