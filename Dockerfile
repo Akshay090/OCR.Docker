@@ -3,7 +3,11 @@ FROM tensorflow/tensorflow:latest-gpu
 RUN apt-get update && apt-get install -y \
   libsm6 \
   libxext6 \
-  libxrender-dev
+  libxrender-dev\
+  tesseract-ocr\
+  libtesseract-dev\ 
+  libleptonica-dev\ 
+  pkg-config
 
 COPY ./requirements.txt /app/requirements.txt
 

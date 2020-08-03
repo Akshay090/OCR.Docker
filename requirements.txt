@@ -2,4 +2,4 @@ fastapi
 uvicorn
 python-multipart
 keras-ocr
-tensorflow
+tesserocr
