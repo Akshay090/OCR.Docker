@@ -18,16 +18,15 @@ def create_upload_file(file: UploadFile = File(...)):
     predictions = recognize(file.file)
 
     response = {}
-
+    text = []
+    coords = []
     for idx, prediction in enumerate(predictions):
-        text = []
-        coords = []
         for word, array in prediction:
             text.append(word)
             coords.append(array.tolist())
 
-    response[fileName] = {"text": word, "coords" :coords}
-    print(predictions)
+    response[fileName] = {"text": text, "coords" :coords}
+    # print(predictions)
     return response
 
 
@@ -40,7 +39,6 @@ def recognize(img):
 
 @app.post("/tesserocr/")
 async def upload_file(file: UploadFile = File(...)):
-    print('hello')
     image = Image.open(file.file)
     res = tesserocr.image_to_text(image)
     return res
